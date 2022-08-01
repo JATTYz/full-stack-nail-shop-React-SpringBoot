@@ -1,0 +1,8 @@
+
+
+.custom-class {
+    background-color: rgb(223, 115, 115);
+    @media (min-width:576px){
+           background-color: green;
+    }
+}

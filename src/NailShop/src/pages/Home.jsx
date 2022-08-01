@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div>
             <Annoucement />
-            <Navbar />
+            <Navbar expand="false"/>
             <Slider />
             <ProductHead />
             <Products />

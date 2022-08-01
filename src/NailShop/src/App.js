@@ -5,6 +5,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Booking from "./pages/Booking"
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Allbooking from './pages/Allbooking';
+
 function App() {
   return (
     <Router>
@@ -14,6 +16,7 @@ function App() {
         <Route path="/register" exact component={Register}/>
         <Route path="/login" exact component={Login} />
         <Route path="/booking" exact component={Booking} />
+        <Route path="/all-booking" exact component={Allbooking} />
       </Switch>
     </Router>
   );
