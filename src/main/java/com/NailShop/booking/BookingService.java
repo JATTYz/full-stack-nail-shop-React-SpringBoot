@@ -3,6 +3,7 @@ package com.NailShop.booking;
 import com.NailShop.booking.Repo.BookingRepository;
 import com.NailShop.booking.model.Booking;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class BookingService {
 
+    @Autowired
     private final BookingRepository bookingRepository;
 
     public List<Booking> allBooking(){

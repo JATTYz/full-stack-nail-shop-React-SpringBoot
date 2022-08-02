@@ -8,73 +8,74 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-public class User  {
+public class User  implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer userId;
-
-    private String email;
-
-    private String username;
-
-    private String password;
+    private Long userId;
 
     private String firstName;
 
     private String lastName;
 
-    private int enabled;
+    private String email;
 
-//    @OneToMany
-//    @JoinColumn(name = "username")
-//    List<UserRole> userRoles;
+    private String password;
 
+    @Builder.Default
+    private UserRole userRole = UserRole.USER;
 
-    public User(String email, String username, String password, String firstName, String lastName) {
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.enabled = 1;
+    @Builder.Default
+    private Boolean locked = false;
+
+    @Builder.Default
+    private Boolean enabled = false;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        final SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole.name());
+
+        return Collections.singletonList(simpleGrantedAuthority);
+
     }
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        final List<SimpleGrantedAuthority> grantedAuthorities = new ArrayList<>();
-//        for (UserRole role: userRoles){
-//            grantedAuthorities.add(new SimpleGrantedAuthority(role.getAuthority()));
-//        }
-//        return grantedAuthorities;
-//    }
-//
-//    @Override
-//    public boolean isAccountNonExpired() {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean isAccountNonLocked() {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean isCredentialsNonExpired() {
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean isEnabled() {
-//        if(enabled==1) {
-//            return true;
-//        }
-//        return false;
-//    }
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return !locked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
 }

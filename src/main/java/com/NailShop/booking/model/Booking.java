@@ -3,6 +3,7 @@ package com.NailShop.booking.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -28,10 +29,10 @@ public class Booking {
     )
     private Long bookingId;
 
-    private String a_name;
-    private String b_lastName;
-    private String c_email;
-    private Integer d_phoneNumber;
-//    private Date appointDate;
+    private String name;
+    private String lastName;
+    private String email;
+    private Integer phoneNumber;
+    private LocalDateTime appointDate;
 
 }

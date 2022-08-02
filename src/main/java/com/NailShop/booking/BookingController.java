@@ -1,7 +1,9 @@
 package com.NailShop.booking;
 
+import com.NailShop.booking.Repo.BookingRepository;
 import com.NailShop.booking.model.Booking;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 public class BookingController {
 
+    @Autowired
     private BookingService bookingService;
+
 
     @GetMapping
     public List<Booking> findAllBooking(){
