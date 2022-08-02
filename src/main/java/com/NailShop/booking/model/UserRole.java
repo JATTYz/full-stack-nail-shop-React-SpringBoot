@@ -1,5 +1,5 @@
 package com.NailShop.booking.model;
 
-enum UserRole {
+public enum UserRole {
     ADMIN, USER
 }

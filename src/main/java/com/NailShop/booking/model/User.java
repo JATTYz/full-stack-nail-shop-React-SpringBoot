@@ -40,6 +40,7 @@ public class User  implements UserDetails{
     @Builder.Default
     private Boolean enabled = false;
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         final SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole.name());

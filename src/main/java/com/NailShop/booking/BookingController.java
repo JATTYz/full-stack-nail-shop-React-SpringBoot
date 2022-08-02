@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class BookingController {
 
-    @Autowired
+
     private BookingService bookingService;
 
 

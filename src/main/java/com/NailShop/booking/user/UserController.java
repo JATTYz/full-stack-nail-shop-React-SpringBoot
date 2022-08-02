@@ -21,6 +21,12 @@ public class UserController {
         log.info("User is created " + user);
     }
 
+    @PostMapping("/admin-signup")
+    public void adminSignup(@RequestBody User user){
+        userService.signUpAdmin(user);
+        log.info("ADMIN is created " + user);
+    }
+
     @GetMapping("/getUser")
     public String getUser(){
         return "HELLO WORLD";
@@ -29,6 +35,11 @@ public class UserController {
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getUsers();
+    }
+
+    @RequestMapping(path = "/sign-in")
+    public String signIn(){
+        return "sign-in.html";
     }
 
 
