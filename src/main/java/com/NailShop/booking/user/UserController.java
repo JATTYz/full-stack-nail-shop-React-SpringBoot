@@ -37,10 +37,4 @@ public class UserController {
         return userService.getUsers();
     }
 
-    @RequestMapping(path = "/sign-in")
-    public String signIn(){
-        return "sign-in.html";
-    }
-
-
 }
