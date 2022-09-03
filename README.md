@@ -1,2 +1,2 @@
 # NailShop Booking Service
-## Full-Stack with React & Spring boot
+## Full-Stack with React & Spring boot & Postgres
