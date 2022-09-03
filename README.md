@@ -1,1 +1,2 @@
-# Full-Stack-Nail-Shop-React-SpringBoot
+# NailShop Booking Service
+## Full-Stack with React & Spring boot
